@@ -4,44 +4,58 @@ stages:
     cmd: python src/data/load_data.py --config=params.yaml
     deps:
     - path: data/external/train.csv
-      md5: dc73c86273dfc5c9170a94003ffeaa08
-      size: 27387
+      md5: a24e82456bf564321cf588bb8a06cb15
+      size: 9520
     - path: src/data/load_data.py
       md5: 32c4517706af86c21578f030b2f03613
-      size: 1393
+      size: 1436
     outs:
     - path: data/raw/train.csv
-      md5: dc73c86273dfc5c9170a94003ffeaa08
-      size: 27387
+      md5: a24e82456bf564321cf588bb8a06cb15
+      size: 9520
   split_data:
     cmd: python src/data/split_data.py --config=params.yaml
     deps:
     - path: data/raw/train.csv
-      md5: dc73c86273dfc5c9170a94003ffeaa08
-      size: 27387
+      md5: a24e82456bf564321cf588bb8a06cb15
+      size: 9520
     - path: src/data/split_data.py
       md5: 6272739641eacd8fa225246daf2ba328
-      size: 1460
+      size: 1494
     outs:
-    - path: data/processed/churn_test.csv
-      md5: 873c63af4c59b6fdf7be02d13b29b00a
-      size: 5582
-    - path: data/processed/churn_train.csv
-      md5: 278b1421634d9fe6d325ce1cbfcae83c
-      size: 21933
+    - path: data/processed/Chance_of_Admit_test.csv
+      md5: 851b2da1e284b61ef0cd39c915734688
+      size: 1965
+    - path: data/processed/Chance_of_Admit_train.csv
+      md5: ba144059c74703ca6cbb2570769333ee
+      size: 7629
   model_train:
     cmd: python src/models/train_model.py --config=params.yaml
     deps:
-    - path: data/processed/churn_test.csv
-      md5: 873c63af4c59b6fdf7be02d13b29b00a
-      size: 5582
-    - path: data/processed/churn_train.csv
-      md5: 278b1421634d9fe6d325ce1cbfcae83c
-      size: 21933
+    - path: data/processed/Chance_of_Admit_test.csv
+      md5: 851b2da1e284b61ef0cd39c915734688
+      size: 1965
+    - path: data/processed/Chance_of_Admit_train.csv
+      md5: ba144059c74703ca6cbb2570769333ee
+      size: 7629
     - path: src/models/train_model.py
-      md5: e48c50582484f9e8c8b6e705787a95e4
-      size: 3780
+      md5: cb54442280a80ae9772541b503c4f0ec
+      size: 3959
     params:
       params.yaml:
         random_forest.max_depth: 10
         random_forest.n_estimators: 30
+  log_production_model:
+    cmd: python src/models/production_model_selection.py --config=params.yaml
+    deps:
+    - path: src/models/production_model_selection.py
+      md5: c9a1c572574881b49ac0b8564813d2ff
+      size: 1729
+    params:
+      params.yaml:
+        random_forest.max_depth: 10
+        random_forest.n_estimators: 30
+    outs:
+    - path: models/model.joblib
+      md5: 2f1837ee21a30f34b23eb03eac5dc9bb
+      size: 295641
