@@ -1,9 +1,9 @@
-.. renatl_bike_model documentation master file, created by
+.. a documentation master file, created by
    sphinx-quickstart.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-renatl_bike_model documentation!
+chance_of_admission documentation!
 ==============================================
 
 Contents:

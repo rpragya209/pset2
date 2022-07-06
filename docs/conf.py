@@ -41,7 +41,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'renatl_bike_model'
+project = u'chance_of_admission'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'renatl_bikedoc'
+htmlhelp_basename = 'admission_preddoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -184,9 +184,9 @@ latex_elements = {
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
     ('index',
-     'renatl_bike.tex',
-     u'renatl_bike_model Documentation',
-     u"Naveen Rudrappa", 'manual'),
+     'admission_pred.tex',
+     u'admission prediction Documentation',
+     u"Pragya Roy", 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -215,8 +215,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'renatl_bike', u'renatl_bike_model Documentation',
-     [u"Naveen Rudrappa"], 1)
+    ('index', 'admission_pred', u'chance_of_admission Documentation',
+     [u"Pragya Roy"], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -229,9 +229,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    ('index', 'renatl_bike', u'renatl_bike_model Documentation',
-     u"Naveen Rudrappa", 'renatl_bike_model',
-     'ML model to predict rental bike', 'Miscellaneous'),
+    ('index', 'admission_pred', u'chance_of_admission Documentation',
+     u"Pragya Roy", 'chance_of_admission',
+     'ML model to predict chance of admission', 'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
